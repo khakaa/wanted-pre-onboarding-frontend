@@ -16,17 +16,11 @@ function Todo() {
   const editTodoInputRef = useRef();
   const [todoList, setTodoList] = useState([]);
 
+  console.log(todoList);
   //   getTodo
   const getTodo = async () => {
     try {
-      const access_token = localStorage.getItem("access_token");
-      const response = await axios.get("/todos", {
-        baseURL: BASEURL,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${access_token}`,
-        },
-      });
+      const response = await getTodoApi();
       if (response.status === 200) {
         let list = response.data;
         setTodoList(list);
@@ -67,7 +61,6 @@ function Todo() {
       console.log(error);
     }
   };
-  console.log(todoList);
 
   // deleteTodo
   const deleteTodo = async (id) => {
@@ -87,19 +80,21 @@ function Todo() {
   }, []);
 
   return (
-    <div>
+    <div className="wrapper">
       <NewTodo newTodoRef={newTodoRef} createTodo={createTodo} />
-      {todoList?.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          editTodoInputRef={editTodoInputRef}
-          id={todo.id}
-          isCompleted={todo.isCompleted}
-          todo={todo.todo}
-          updateTodo={updateTodo}
-          deleteTodo={deleteTodo}
-        />
-      ))}
+      <ul>
+        {todoList?.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            editTodoInputRef={editTodoInputRef}
+            id={todo.id}
+            isCompleted={todo.isCompleted}
+            todo={todo.todo}
+            updateTodo={updateTodo}
+            deleteTodo={deleteTodo}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
