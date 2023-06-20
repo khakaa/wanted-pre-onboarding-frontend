@@ -31,24 +31,35 @@ function Signup() {
     }
   };
   return (
-    <div>
-      signup
-      <input
-        data-testid="email-input"
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
-      <input
-        type="password"
-        data-testid="password-input"
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
-      <button data-testid="signup-button" disabled={btnState} onClick={signup}>
-        회원가입
-      </button>
+    <div className="wrapper">
+      <h1 className="title mb-[80px]">SignUp</h1>
+      <div className="auth-wrapper">
+        <p>ID</p>
+        <input
+          className="input"
+          data-testid="email-input"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <p>PASSWORD</p>
+        <input
+          className="input mb-[12px]"
+          type="password"
+          data-testid="password-input"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+        <button
+          className={btnState ? "disabled-btn" : "home-btn"}
+          data-testid="signup-button"
+          disabled={btnState}
+          onClick={signup}
+        >
+          회원가입
+        </button>
+      </div>
     </div>
   );
 }

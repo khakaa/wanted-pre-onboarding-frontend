@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdDone } from "react-icons/md";
 
 function TodoItem({
   editTodoInputRef,
@@ -39,15 +40,17 @@ function TodoItem({
   };
 
   return (
-    <>
+    <div>
       {mode === true ? (
         <>
           <input
+            className="input w-[220px]"
             data-testid="modify-input"
             defaultValue={todo}
             ref={editTodoInputRef}
           />
           <button
+            className="bg-emerald-300 hover:bg-emerald-400 todo-store-btn"
             data-testid="submit-button"
             onClick={() => {
               editSubmmit(id);
@@ -55,31 +58,45 @@ function TodoItem({
           >
             제출
           </button>
-          <button data-testid="cancel-button" onClick={editModeHandler}>
+          <button
+            className="todo-store-btn bg-red-400 hover:bg-red-500"
+            data-testid="cancel-button"
+            onClick={editModeHandler}
+          >
             취소
           </button>
         </>
       ) : (
-        <li key={id}>
+        <li className="todo-item">
           <label>
             <input
+              className="hidden"
               checked={checked}
               type="checkbox"
               onChange={(e) => {
                 checkHandler(e, todo, id);
               }}
             />
-            <span>{todo}</span>
+            {checked ? (
+              <div className="check-box checked">
+                <MdDone className="text-emerald-300" />
+              </div>
+            ) : (
+              <div className="check-box"></div>
+            )}
           </label>
+          <span className={"w-[200px] " + (checked && "text-zinc-300")}>
+            {todo}
+          </span>
           <button
+            className="bg-emerald-300 hover:bg-emerald-400 todo-store-btn"
             data-testid="modify-button"
-            onClick={() => {
-              editModeHandler();
-            }}
+            onClick={editModeHandler}
           >
             수정
           </button>
           <button
+            className=" bg-red-400 hover:bg-red-500 todo-store-btn"
             data-testid="delete-button"
             onClick={() => {
               deleteTodo(id);
@@ -89,7 +106,7 @@ function TodoItem({
           </button>
         </li>
       )}
-    </>
+    </div>
   );
 }
 

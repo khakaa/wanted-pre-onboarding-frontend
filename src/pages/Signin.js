@@ -35,20 +35,31 @@ function Signin() {
   };
 
   return (
-    <div>
-      signin
-      <input
-        data-testid="email-input"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        data-testid="password-input"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button data-testid="signin-button" disabled={btnState} onClick={signin}>
-        로그인
-      </button>
+    <div className="wrapper">
+      <h1 className="title mb-[80px]">SignIn</h1>
+      <div className="auth-wrapper">
+        <p>ID</p>
+        <input
+          className="input"
+          data-testid="email-input"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <p>PASSWORD</p>
+        <input
+          className="input mb-[12px]"
+          type="password"
+          data-testid="password-input"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button
+          className={btnState ? "disabled-btn" : "home-btn"}
+          data-testid="signin-button"
+          disabled={btnState}
+          onClick={signin}
+        >
+          로그인
+        </button>
+      </div>
     </div>
   );
 }
