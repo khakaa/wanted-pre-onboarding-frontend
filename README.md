@@ -2,15 +2,11 @@
 
 ## 이름
 
----
-
 박하린
 
 <br/>
 
 ## 프로젝트 실행 방법
-
----
 
 ```
 npm install & npm start
@@ -20,14 +16,10 @@ npm install & npm start
 
 ## 데모영상
 
----
-
-https://github.com/khakaa/wanted-pre-onboarding-frontend/assets/73606877/d5a965a0-5da5-462c-8fa6-443bb0b3554b
+[todo](https://github.com/khakaa/wanted-pre-onboarding-frontend/assets/73606877/d5a965a0-5da5-462c-8fa6-443bb0b3554b)
 
 <br/>
 
 ## 배포링크
-
----
 
 https://wanted-pre-onboarding-frontend-blue.vercel.app/
