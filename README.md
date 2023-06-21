@@ -16,7 +16,7 @@ npm install & npm start
 
 ## 데모영상
 
-[todo](https://github.com/khakaa/wanted-pre-onboarding-frontend/assets/73606877/d5a965a0-5da5-462c-8fa6-443bb0b3554b)
+<img width="80%" src="https://github.com/khakaa/wanted-pre-onboarding-frontend/assets/73606877/d5a965a0-5da5-462c-8fa6-443bb0b3554b" />
 
 <br/>
 
