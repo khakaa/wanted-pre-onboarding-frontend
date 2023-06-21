@@ -42,7 +42,7 @@ function TodoItem({
   return (
     <div>
       {mode === true ? (
-        <>
+        <li className="todo-item">
           <input
             className="input w-[220px]"
             data-testid="modify-input"
@@ -65,7 +65,7 @@ function TodoItem({
           >
             취소
           </button>
-        </>
+        </li>
       ) : (
         <li className="todo-item">
           <label>
